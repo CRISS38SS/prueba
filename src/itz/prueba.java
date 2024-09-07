@@ -10,7 +10,8 @@ public class prueba {
         int y=Integer.parseInt(JOptionPane.showInputDialog(null,"ingresa un numero"));
         int sum=suma(x, y);
         int res=resta(x, y);
-        JOptionPane.showMessageDialog(null,"la suma es "+sum+" y la resta es "+res);
+        int mult=multiplicacion(x,y);
+        JOptionPane.showMessageDialog(null,"la suma es "+sum+", la resta es "+res+" y la multiplicacion es "+mult);
     }
     public int suma(int x,int y){
         return x+y;
@@ -18,5 +19,9 @@ public class prueba {
 
     public int resta(int x, int y){
         return x-y;
+    }
+
+    public int multiplicacion(int x, int y){
+        return x*y;
     }
 }
