@@ -1,7 +1,5 @@
 package itz;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -20,22 +18,7 @@ public class Calculadora extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtResultado;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Calculadora frame = new Calculadora();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	Operaciones operaciones=new Operaciones();
 
 	/**
 	 * Create the frame.
@@ -221,10 +204,10 @@ public class Calculadora extends JFrame {
 					double num2 = numerosLista.get(i + 1);
 	
 					if (operadorActual == '*') {
-						resultadoTemp = num1 * num2;
+						resultadoTemp = operaciones.multiplicacion(num1,num2);
 					} else { // operadorActual == '/'
 						if (num2 != 0) {
-							resultadoTemp = num1 / num2;
+							resultadoTemp = operaciones.division(num1, num2);
 						} else {
 							txtResultado.setText("Error: División por cero");
 							return; // Detener la ejecución si hay división por cero

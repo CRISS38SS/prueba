@@ -2,23 +2,15 @@ package itz;
 
 public class Operaciones {
     
-    public int suma(int x,int y){
-        return x+y;
-    }
-
-    public int resta(int x, int y){
-        return x-y;
-    }
-
-    public int multiplicacion(int x, int y){
+    public double multiplicacion(double x, double y){
         return x*y;
     }
 
-    public  float division(int x,int y){
+    public  double division(double x,double y){
         return x/y;
     }
 
-    public float alcuadrado(int x){
+    public double alcuadrado(double x){
         return 0;
     }
 }
