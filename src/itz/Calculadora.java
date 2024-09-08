@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import java.awt.List;
 
 import javax.swing.SwingConstants;
 
@@ -57,8 +56,6 @@ public class Calculadora extends JFrame {
 		txtResultado.setEditable(false);
 		contentPane.add(txtResultado);
 		txtResultado.setColumns(10);
-
-        ArrayList<String>num=new ArrayList<>();
 		
 		JButton btnCE = new JButton("CE");
 		btnCE.addActionListener(new ActionListener() {
@@ -69,10 +66,7 @@ public class Calculadora extends JFrame {
                 }
 			}
 		});
-		btnCE.setBackground(new Color(94, 92, 100));
-		btnCE.setForeground(new Color(255, 255, 255));
-		btnCE.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnCE.setBorder(null);
+		estiloBtn(btnCE);
 		btnCE.setBounds(22, 75, 73, 35);
 		contentPane.add(btnCE);
 		
@@ -82,139 +76,87 @@ public class Calculadora extends JFrame {
                 txtResultado.setText("");
 			}
 		});
-		btnC.setBackground(new Color(94, 92, 100));
-		btnC.setForeground(new Color(255, 255, 255));
-		btnC.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnC.setBorder(null);
+		estiloBtn(btnC);
 		btnC.setBounds(107, 75, 73, 35);
 		contentPane.add(btnC);
 		
 		JButton btnPotencia = new JButton("=");
-		btnPotencia.setBackground(new Color(94, 92, 100));
-		btnPotencia.setForeground(new Color(255, 255, 255));
-		btnPotencia.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
+		estiloBtn(btnPotencia);
 		btnPotencia.setBounds(277, 257, 73, 95);
 		contentPane.add(btnPotencia);
 		
 		JButton btnDivision = new JButton("/");
-		btnDivision.setBackground(new Color(94, 92, 100));
-		btnDivision.setForeground(new Color(255, 255, 255));
-		btnDivision.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnDivision.setBorder(null);
+		estiloBtn(btnDivision);
 		btnDivision.setBounds(192, 75, 73, 35);
-		//btnDivision.setBounds(277, 75, 73, 35);
 		contentPane.add(btnDivision);
 		
 		JButton btnMultiplicacion = new JButton("*");
-		btnMultiplicacion.setBackground(new Color(94, 92, 100));
-		btnMultiplicacion.setForeground(new Color(255, 255, 255));
-		btnMultiplicacion.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnMultiplicacion.setBorder(null);
+		estiloBtn(btnMultiplicacion);
 		btnMultiplicacion.setBounds(277, 75, 73, 35);
-		//btnMultiplicacion.setBounds(277, 140, 73, 35);
 		contentPane.add(btnMultiplicacion);
 		
 		JButton btnResta = new JButton("-");
-		btnResta.setBackground(new Color(94, 92, 100));
-		btnResta.setForeground(new Color(255, 255, 255));
-		btnResta.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnResta.setBorder(null);
+		estiloBtn(btnResta);
 		btnResta.setBounds(277, 200, 73, 35);
 		contentPane.add(btnResta);
 		
 		JButton btnSuma = new JButton("+");
-		btnSuma.setBackground(new Color(94, 92, 100));
-		btnSuma.setForeground(new Color(255, 255, 255));
-		btnSuma.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnSuma.setBorder(null);
+		estiloBtn(btnSuma);
 		btnSuma.setBounds(277, 140, 73, 35);
 		contentPane.add(btnSuma);
 		
 		JButton btnTres = new JButton("3");
-		btnTres.setBackground(new Color(94, 92, 100));
-		btnTres.setForeground(new Color(255, 255, 255));
-		btnTres.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnTres.setBorder(null);
+		estiloBtn(btnTres);
 		btnTres.setBounds(192, 257, 73, 35);
 		contentPane.add(btnTres);
 		
 		JButton btnSeis = new JButton("6");
-		btnSeis.setBackground(new Color(94, 92, 100));
-		btnSeis.setForeground(new Color(255, 255, 255));
-		btnSeis.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnSeis.setBorder(null);
+		estiloBtn(btnSeis);
 		btnSeis.setBounds(192, 197, 73, 35);
 		contentPane.add(btnSeis);
 		
 		JButton btnNueve = new JButton("9");
-		btnNueve.setBackground(new Color(94, 92, 100));
-		btnNueve.setForeground(new Color(255, 255, 255));
-		btnNueve.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnNueve.setBorder(null);
+		estiloBtn(btnNueve);
 		btnNueve.setBounds(192, 140, 73, 35);
 		contentPane.add(btnNueve);
 		
 		JButton btnDos = new JButton("2");
-		btnDos.setBackground(new Color(94, 92, 100));
-		btnDos.setForeground(new Color(255, 255, 255));
-		btnDos.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnDos.setBorder(null);
+		estiloBtn(btnDos);
 		btnDos.setBounds(107, 257, 73, 35);
 		contentPane.add(btnDos);
 		
 		JButton btnCinco = new JButton("5");
-		btnCinco.setBackground(new Color(94, 92, 100));
-		btnCinco.setForeground(new Color(255, 255, 255));
-		btnCinco.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnCinco.setBorder(null);
+		estiloBtn(btnCinco);
 		btnCinco.setBounds(107, 197, 73, 35);
 		contentPane.add(btnCinco);
 		
 		JButton btnOcho = new JButton("8");
-		btnOcho.setBackground(new Color(94, 92, 100));
-		btnOcho.setForeground(new Color(255, 255, 255));
-		btnOcho.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnOcho.setBorder(null);
+		estiloBtn(btnOcho);
 		btnOcho.setBounds(107, 140, 73, 35);
 		contentPane.add(btnOcho);
 		
 		JButton btnPunto = new JButton(".");
-		btnPunto.setBackground(new Color(94, 92, 100));
-		btnPunto.setForeground(new Color(255, 255, 255));
-		btnPunto.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnPunto.setBorder(null);
+		estiloBtn(btnPunto);
 		btnPunto.setBounds(107, 317, 73, 35);
 		contentPane.add(btnPunto);
 		
 		JButton btnUno = new JButton("1");
-		btnUno.setBackground(new Color(94, 92, 100));
-		btnUno.setForeground(new Color(255, 255, 255));
-		btnUno.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnUno.setBorder(null);
+		estiloBtn(btnUno);
 		btnUno.setBounds(22, 257, 73, 35);
 		contentPane.add(btnUno);
 		
 		JButton btnCuatro = new JButton("4");
-		btnCuatro.setBackground(new Color(94, 92, 100));
-		btnCuatro.setForeground(new Color(255, 255, 255));
-		btnCuatro.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnCuatro.setBorder(null);
+		estiloBtn(btnCuatro);
 		btnCuatro.setBounds(22, 197, 73, 35);
 		contentPane.add(btnCuatro);
 		
 		JButton btnSiete = new JButton("7");
-		btnSiete.setBackground(new Color(94, 92, 100));
-		btnSiete.setForeground(new Color(255, 255, 255));
-		btnSiete.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnSiete.setBorder(null);
+		estiloBtn(btnSiete);
 		btnSiete.setBounds(22, 140, 73, 35);
 		contentPane.add(btnSiete);
 		
 		JButton btnCero = new JButton("0");
-		btnCero.setBackground(new Color(94, 92, 100));
-		btnCero.setForeground(new Color(255, 255, 255));
-		btnCero.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnCero.setBorder(null);
+		estiloBtn(btnCero);
 		btnCero.setBounds(22, 317, 73, 35);
 		contentPane.add(btnCero);
 
@@ -238,6 +180,7 @@ public class Calculadora extends JFrame {
 		//----------------igual--------------------------------
 		btnPotencia.addActionListener(btnIgual);
 	}
+
     public String numero(JButton button){
         String num=button.getText();
         return num;
@@ -249,6 +192,7 @@ public class Calculadora extends JFrame {
             txtResultado.setText(txtResultado.getText()+numero(button));
         }
     };
+
 	ActionListener btnIgual = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			String txActual = txtResultado.getText(); // Obtener el texto actual del campo
@@ -312,4 +256,12 @@ public class Calculadora extends JFrame {
 			txtResultado.setText(String.valueOf(resultado));
 		}
 	};
+
+	public void estiloBtn(JButton button){
+		button.setBackground(new Color(94, 92, 100));
+		button.setForeground(new Color(255, 255, 255));
+		button.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
+		button.setBorder(null);
+	}
+
 }
