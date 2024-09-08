@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.List;
+
 import javax.swing.SwingConstants;
 
 public class Calculadora extends JFrame {
@@ -52,6 +54,7 @@ public class Calculadora extends JFrame {
 		txtResultado = new JTextField();
 		txtResultado.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtResultado.setBounds(12, 12, 356, 51);
+		txtResultado.setEditable(false);
 		contentPane.add(txtResultado);
 		txtResultado.setColumns(10);
 
@@ -86,11 +89,11 @@ public class Calculadora extends JFrame {
 		btnC.setBounds(107, 75, 73, 35);
 		contentPane.add(btnC);
 		
-		JButton btnPotencia = new JButton("x\"");
+		JButton btnPotencia = new JButton("=");
 		btnPotencia.setBackground(new Color(94, 92, 100));
 		btnPotencia.setForeground(new Color(255, 255, 255));
 		btnPotencia.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnPotencia.setBounds(192, 75, 73, 35);
+		btnPotencia.setBounds(277, 257, 73, 95);
 		contentPane.add(btnPotencia);
 		
 		JButton btnDivision = new JButton("/");
@@ -98,7 +101,8 @@ public class Calculadora extends JFrame {
 		btnDivision.setForeground(new Color(255, 255, 255));
 		btnDivision.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
 		btnDivision.setBorder(null);
-		btnDivision.setBounds(277, 75, 73, 35);
+		btnDivision.setBounds(192, 75, 73, 35);
+		//btnDivision.setBounds(277, 75, 73, 35);
 		contentPane.add(btnDivision);
 		
 		JButton btnMultiplicacion = new JButton("*");
@@ -106,7 +110,8 @@ public class Calculadora extends JFrame {
 		btnMultiplicacion.setForeground(new Color(255, 255, 255));
 		btnMultiplicacion.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
 		btnMultiplicacion.setBorder(null);
-		btnMultiplicacion.setBounds(277, 140, 73, 35);
+		btnMultiplicacion.setBounds(277, 75, 73, 35);
+		//btnMultiplicacion.setBounds(277, 140, 73, 35);
 		contentPane.add(btnMultiplicacion);
 		
 		JButton btnResta = new JButton("-");
@@ -122,7 +127,7 @@ public class Calculadora extends JFrame {
 		btnSuma.setForeground(new Color(255, 255, 255));
 		btnSuma.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
 		btnSuma.setBorder(null);
-		btnSuma.setBounds(277, 257, 73, 95);
+		btnSuma.setBounds(277, 140, 73, 35);
 		contentPane.add(btnSuma);
 		
 		JButton btnTres = new JButton("3");
@@ -214,6 +219,7 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnCero);
 
         //----------------botones action listener----------
+		btnUno.addActionListener(btn);
         btnDos.addActionListener(btn);
         btnTres.addActionListener(btn);
         btnCuatro.addActionListener(btn);
@@ -224,10 +230,13 @@ public class Calculadora extends JFrame {
         btnNueve.addActionListener(btn);
         btnPunto.addActionListener(btn);
         btnCero.addActionListener(btn);
+		//-------------botones actionLIstener Operaciones----
         btnResta.addActionListener(btn);
         btnSuma.addActionListener(btn);
         btnMultiplicacion.addActionListener(btn);
         btnDivision.addActionListener(btn);
+		//----------------igual--------------------------------
+		btnPotencia.addActionListener(btnIgual);
 	}
     public String numero(JButton button){
         String num=button.getText();
@@ -240,4 +249,67 @@ public class Calculadora extends JFrame {
             txtResultado.setText(txtResultado.getText()+numero(button));
         }
     };
+	ActionListener btnIgual = new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			String txActual = txtResultado.getText(); // Obtener el texto actual del campo
+			String[] numeros = txActual.split("[\\+\\-\\*/]"); // Dividir por operadores
+			ArrayList<Character> operadores = new ArrayList<>(); // Lista para almacenar los operadores
+	
+			// Extraer los operadores de la cadena
+			for (char c : txActual.toCharArray()) {
+				if (c == '+' || c == '-' || c == '*' || c == '/') {
+					operadores.add(c);
+				}
+			}
+	
+			// Convertir los números de String a Double (para manejar decimales)
+			ArrayList<Double> numerosLista = new ArrayList<>();
+			for (String numero : numeros) {
+				numerosLista.add(Double.parseDouble(numero));
+			}
+	
+			// Fase 1: Evaluar multiplicación y división
+			for (int i = 0; i < operadores.size(); i++) {
+				char operadorActual = operadores.get(i);
+				if (operadorActual == '*' || operadorActual == '/') {
+					double resultadoTemp;
+					double num1 = numerosLista.get(i);
+					double num2 = numerosLista.get(i + 1);
+	
+					if (operadorActual == '*') {
+						resultadoTemp = num1 * num2;
+					} else { // operadorActual == '/'
+						if (num2 != 0) {
+							resultadoTemp = num1 / num2;
+						} else {
+							txtResultado.setText("Error: División por cero");
+							return; // Detener la ejecución si hay división por cero
+						}
+					}
+	
+					// Remplazar los dos números evaluados por su resultado
+					numerosLista.set(i, resultadoTemp);
+					numerosLista.remove(i + 1); // Eliminar el segundo número ya evaluado
+					operadores.remove(i); // Eliminar el operador ya evaluado
+					i--; // Ajustar índice para no saltar elementos
+				}
+			}
+	
+			// Fase 2: Evaluar suma y resta
+			double resultado = numerosLista.get(0);
+			for (int i = 0; i < operadores.size(); i++) {
+				char operadorActual = operadores.get(i);
+				double numeroActual = numerosLista.get(i + 1);
+	
+				if (operadorActual == '+') {
+					resultado += numeroActual;
+				} else if (operadorActual == '-') {
+					resultado -= numeroActual;
+				}
+			}
+	
+			// Mostrar el resultado en el campo de texto
+			txtResultado.setText(String.valueOf(resultado));
+		}
+	};
 }
