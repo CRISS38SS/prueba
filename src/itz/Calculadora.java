@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -53,10 +54,16 @@ public class Calculadora extends JFrame {
 		txtResultado.setBounds(12, 12, 356, 51);
 		contentPane.add(txtResultado);
 		txtResultado.setColumns(10);
+
+        ArrayList<String>num=new ArrayList<>();
 		
 		JButton btnCE = new JButton("CE");
 		btnCE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                String txtActual=txtResultado.getText();
+                if (!txtActual.isEmpty()) {
+                    txtResultado.setText(txtActual.substring(0,txtActual.length()-1));
+                }
 			}
 		});
 		btnCE.setBackground(new Color(94, 92, 100));
@@ -69,6 +76,7 @@ public class Calculadora extends JFrame {
 		JButton btnC = new JButton("C");
 		btnC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                txtResultado.setText("");
 			}
 		});
 		btnC.setBackground(new Color(94, 92, 100));
@@ -79,10 +87,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnC);
 		
 		JButton btnPotencia = new JButton("x\"");
-		btnPotencia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnPotencia.setBackground(new Color(94, 92, 100));
 		btnPotencia.setForeground(new Color(255, 255, 255));
 		btnPotencia.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -90,10 +94,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnPotencia);
 		
 		JButton btnDivision = new JButton("/");
-		btnDivision.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnDivision.setBackground(new Color(94, 92, 100));
 		btnDivision.setForeground(new Color(255, 255, 255));
 		btnDivision.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -105,19 +105,11 @@ public class Calculadora extends JFrame {
 		btnMultiplicacion.setBackground(new Color(94, 92, 100));
 		btnMultiplicacion.setForeground(new Color(255, 255, 255));
 		btnMultiplicacion.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnMultiplicacion.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnMultiplicacion.setBorder(null);
 		btnMultiplicacion.setBounds(277, 140, 73, 35);
 		contentPane.add(btnMultiplicacion);
 		
 		JButton btnResta = new JButton("-");
-		btnResta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnResta.setBackground(new Color(94, 92, 100));
 		btnResta.setForeground(new Color(255, 255, 255));
 		btnResta.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -126,10 +118,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnResta);
 		
 		JButton btnSuma = new JButton("+");
-		btnSuma.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnSuma.setBackground(new Color(94, 92, 100));
 		btnSuma.setForeground(new Color(255, 255, 255));
 		btnSuma.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -138,10 +126,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnSuma);
 		
 		JButton btnTres = new JButton("3");
-		btnTres.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnTres.setBackground(new Color(94, 92, 100));
 		btnTres.setForeground(new Color(255, 255, 255));
 		btnTres.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -153,19 +137,11 @@ public class Calculadora extends JFrame {
 		btnSeis.setBackground(new Color(94, 92, 100));
 		btnSeis.setForeground(new Color(255, 255, 255));
 		btnSeis.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnSeis.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnSeis.setBorder(null);
 		btnSeis.setBounds(192, 197, 73, 35);
 		contentPane.add(btnSeis);
 		
 		JButton btnNueve = new JButton("9");
-		btnNueve.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnNueve.setBackground(new Color(94, 92, 100));
 		btnNueve.setForeground(new Color(255, 255, 255));
 		btnNueve.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -174,10 +150,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnNueve);
 		
 		JButton btnDos = new JButton("2");
-		btnDos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnDos.setBackground(new Color(94, 92, 100));
 		btnDos.setForeground(new Color(255, 255, 255));
 		btnDos.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -186,10 +158,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnDos);
 		
 		JButton btnCinco = new JButton("5");
-		btnCinco.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnCinco.setBackground(new Color(94, 92, 100));
 		btnCinco.setForeground(new Color(255, 255, 255));
 		btnCinco.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -198,10 +166,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnCinco);
 		
 		JButton btnOcho = new JButton("8");
-		btnOcho.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnOcho.setBackground(new Color(94, 92, 100));
 		btnOcho.setForeground(new Color(255, 255, 255));
 		btnOcho.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -210,10 +174,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnOcho);
 		
 		JButton btnPunto = new JButton(".");
-		btnPunto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnPunto.setBackground(new Color(94, 92, 100));
 		btnPunto.setForeground(new Color(255, 255, 255));
 		btnPunto.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -222,10 +182,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnPunto);
 		
 		JButton btnUno = new JButton("1");
-		btnUno.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnUno.setBackground(new Color(94, 92, 100));
 		btnUno.setForeground(new Color(255, 255, 255));
 		btnUno.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -234,10 +190,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnUno);
 		
 		JButton btnCuatro = new JButton("4");
-		btnCuatro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnCuatro.setBackground(new Color(94, 92, 100));
 		btnCuatro.setForeground(new Color(255, 255, 255));
 		btnCuatro.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -246,10 +198,6 @@ public class Calculadora extends JFrame {
 		contentPane.add(btnCuatro);
 		
 		JButton btnSiete = new JButton("7");
-		btnSiete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnSiete.setBackground(new Color(94, 92, 100));
 		btnSiete.setForeground(new Color(255, 255, 255));
 		btnSiete.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
@@ -261,12 +209,35 @@ public class Calculadora extends JFrame {
 		btnCero.setBackground(new Color(94, 92, 100));
 		btnCero.setForeground(new Color(255, 255, 255));
 		btnCero.setFont(new Font("DejaVu Sans", Font.BOLD, 18));
-		btnCero.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnCero.setBorder(null);
 		btnCero.setBounds(22, 317, 73, 35);
 		contentPane.add(btnCero);
+
+        //----------------botones action listener----------
+        btnDos.addActionListener(btn);
+        btnTres.addActionListener(btn);
+        btnCuatro.addActionListener(btn);
+        btnCinco.addActionListener(btn);
+        btnSeis.addActionListener(btn);
+        btnSiete.addActionListener(btn);
+        btnOcho.addActionListener(btn);
+        btnNueve.addActionListener(btn);
+        btnPunto.addActionListener(btn);
+        btnCero.addActionListener(btn);
+        btnResta.addActionListener(btn);
+        btnSuma.addActionListener(btn);
+        btnMultiplicacion.addActionListener(btn);
+        btnDivision.addActionListener(btn);
 	}
+    public String numero(JButton button){
+        String num=button.getText();
+        return num;
+    }
+
+    ActionListener btn=new ActionListener() {
+        public void actionPerformed(ActionEvent e){
+            JButton button=(JButton) e.getSource();
+            txtResultado.setText(txtResultado.getText()+numero(button));
+        }
+    };
 }
