@@ -1,9 +1,6 @@
 package itz;
 
-public class prueba {
-    public prueba(){
-        
-    }
+public class Operaciones {
     
     public int suma(int x,int y){
         return x+y;
@@ -25,3 +22,4 @@ public class prueba {
         return 0;
     }
 }
+
